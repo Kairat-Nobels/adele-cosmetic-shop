@@ -1,0 +1,102 @@
+$size-of-tablet: 800px;
+$size-of-mobile: 450px;
+
+.bestsellers {
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 26px 0 26px 98px;
+  display: flex;
+  width: 100%;
+  max-width: 1366px;
+  box-sizing: border-box;
+  gap: 86px;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 40px;
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, rgba(255, 210, 230, 0.35) 0%, transparent 72%);
+    filter: blur(8px);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  @media screen and (max-width: $size-of-tablet) {
+    padding: 20px 0 20px 45px;
+    gap: 39px;
+  }
+
+  @media screen and (max-width: $size-of-mobile) {
+    flex-direction: column;
+    gap: 43px;
+    padding: 0 15px;
+    align-items: center;
+  }
+
+  &__description-area {
+    min-width: 215px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: self-start;
+    padding: 34px 28px;
+    padding-bottom: 40px;
+    border-radius: 30px;
+    background: rgba(255, 248, 251, 0.7);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 14px 32px rgba(191, 121, 143, 0.1);
+    position: relative;
+    z-index: 1;
+
+    @media screen and (max-width: $size-of-tablet) {
+      padding: 26px 22px 30px;
+    }
+
+    @media screen and (max-width: $size-of-mobile) {
+      width: 100%;
+      align-items: center;
+      max-width: 260px;
+      padding: 24px 18px;
+      margin-top: 0;
+    }
+  }
+
+  &__title {
+    font-size: 32px;
+    line-height: 42px;
+    margin: 0 0 16px;
+    font-weight: 600;
+    letter-spacing: 0;
+    font-family: var(--font-of-title);
+    color: #8d4f67;
+
+    @media screen and (max-width: $size-of-tablet) {
+      margin-top: 0;
+    }
+
+    @media screen and (max-width: $size-of-mobile) {
+      margin: 0 0 14px;
+      font-size: 28px;
+      line-height: 35px;
+      text-align: center;
+    }
+  }
+
+  &__text {
+    font-size: 18px;
+    line-height: 26px;
+    margin: 0 0 33px;
+    color: var(--color-of-text);
+
+    @media screen and (max-width: $size-of-mobile) {
+      font-size: 16px;
+      line-height: 22px;
+      text-align: center;
+      margin-bottom: 0;
+    }
+  }
+}

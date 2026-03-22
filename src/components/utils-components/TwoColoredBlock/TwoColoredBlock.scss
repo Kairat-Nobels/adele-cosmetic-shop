@@ -1,0 +1,81 @@
+$size-of-tablet: 800px;
+$size-of-mobile: 550px;
+
+.two-colored-block {
+  width: 100%;
+  padding-left: 98px;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+
+  @media screen and (max-width: $size-of-tablet) {
+    padding-left: 45px;
+  }
+
+  @media screen and (max-width: $size-of-mobile) {
+    padding: 0 15px 26px;
+  }
+
+  &__wrapper {
+    max-width: 1366px;
+    width: 100%;
+    display: flex;
+    overflow-x: hidden;
+    gap: 61px;
+    margin: auto;
+    align-items: center;
+    position: relative;
+
+    @media screen and (max-width: $size-of-mobile) {
+      flex-direction: column;
+      overflow-x: auto;
+      margin-bottom: -143px;
+      gap: 24px;
+    }
+  }
+
+  &__colored-area {
+    min-width: 670px;
+    background: linear-gradient(135deg,
+        rgba(255, 239, 246, 0.96) 0%,
+        rgba(255, 231, 240, 0.92) 100%);
+    padding: 90px 214px 50px 100px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    border-radius: 36px;
+    box-shadow: 0 22px 48px rgba(196, 120, 145, 0.12);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.42) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    @media screen and (max-width: $size-of-tablet) {
+      padding: 50px 214px 59px 60px;
+      padding-right: 260px;
+      border-radius: 30px;
+    }
+
+    @media screen and (max-width: $size-of-mobile) {
+      justify-content: center;
+      padding: 50px 30px 110px;
+      min-width: 290px;
+      width: 100%;
+      border-radius: 24px;
+    }
+  }
+
+  &__non-colored-area {
+    position: relative;
+    z-index: 1;
+  }
+}

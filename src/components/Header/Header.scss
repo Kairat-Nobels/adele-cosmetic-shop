@@ -1,0 +1,238 @@
+$size-of-tablet: 800px;
+$size-of-mobile: 450px;
+
+.header {
+  border-bottom: 1px solid transparent;
+  display: grid;
+  grid-template-areas: "logo nav buttons";
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: 103px;
+  align-items: center;
+  box-sizing: border-box;
+  position: fixed;
+  width: 100%;
+  max-width: 1366px;
+  background-color: inherit;
+  z-index: 1000;
+  transition:
+    border-color 0.5s ease,
+    background-color 0.5s ease,
+    box-shadow 0.5s ease,
+    backdrop-filter 0.5s ease;
+
+  @media screen and (max-width: $size-of-tablet) {
+    grid-template-areas:
+      "burger logo buttons"
+      "nav nav nav"
+      "contacts contacts contacts";
+  }
+
+  @media screen and (max-width: $size-of-mobile) {
+    grid-template-rows: 74px;
+  }
+
+  &_colored {
+    border-color: rgba(255, 255, 255, 0.45);
+    background: rgba(255, 245, 251, 0.72);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 6px 20px rgba(156, 98, 148, 0.12);
+  }
+
+  &__logo-link {
+    grid-area: logo;
+    display: flex;
+    justify-content: center;
+    margin-left: 98px;
+    justify-self: center;
+    outline: none;
+
+    @media screen and (max-width: $size-of-tablet) {
+      margin-left: 45px;
+    }
+
+    &:hover .header__logo,
+    &:focus .header__logo {
+      transform: scale(1.06);
+      opacity: 0.92;
+    }
+
+    @media screen and (max-width: $size-of-mobile) {
+      margin-left: 32px;
+    }
+  }
+
+  &__logo {
+    transition:
+      transform 0.25s ease,
+      opacity 0.25s ease;
+    width: 131px;
+    height: 21px;
+
+    @media screen and (max-width: $size-of-mobile) {
+      width: 85px;
+      height: 15px;
+    }
+  }
+
+  &__burger-button {
+    display: none;
+
+    @media screen and (max-width: $size-of-tablet) {
+      display: block;
+      grid-area: burger;
+      height: 24px;
+      width: 18px;
+      padding: 0;
+      border: none;
+      background-color: inherit;
+      cursor: pointer;
+      margin-left: 45px;
+    }
+
+    @media screen and (max-width: $size-of-mobile) {
+      margin-left: 15px;
+      height: 16px;
+    }
+  }
+
+  &__nav-area {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 15px;
+    padding: 0 49px;
+    grid-area: nav;
+
+    @media screen and (max-width: $size-of-tablet) {
+      border-top: 1px solid rgba(255, 255, 255, 0.4);
+      justify-content: start;
+      padding: 0 45px 20px;
+      visibility: hidden;
+      opacity: 0;
+      max-height: 0;
+      transition:
+        visibility 0.6s ease,
+        opacity 0.4s ease,
+        max-height 0.6s ease;
+      align-items: start;
+      flex-direction: column;
+      background: rgba(255, 243, 249, 0.95);
+      backdrop-filter: blur(10px);
+    }
+
+    @media screen and (max-width: $size-of-mobile) {
+      padding-left: 15px;
+    }
+
+    &_open {
+      opacity: 1;
+      visibility: visible;
+      max-height: 500px;
+      transition:
+        visibility 0.6s ease,
+        opacity 0.5s ease,
+        max-height 0.6s ease;
+    }
+  }
+
+  &__buttons-area {
+    display: flex;
+    gap: 29px;
+    grid-area: buttons;
+    padding-right: 99px;
+
+    @media screen and (max-width: $size-of-tablet) {
+      padding-right: 45px;
+    }
+
+    @media screen and (max-width: $size-of-mobile) {
+      padding-right: 14px;
+      gap: 14px;
+    }
+  }
+
+  &__button {
+    height: 21px;
+    width: 18px;
+    padding: 0;
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+    outline: 2px solid transparent;
+    outline-offset: 4px;
+    border-radius: 50%;
+    transition:
+      outline-color 0.25s ease,
+      outline-offset 0.25s ease,
+      transform 0.25s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover,
+    &:focus {
+      outline-color: #a85d84;
+      outline-offset: 6px;
+      transform: translateY(-1px);
+    }
+  }
+
+  &__cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: linear-gradient(135deg, #ff9f7a 0%, #ff7ca8 100%);
+    color: #fff;
+    font-size: 12px;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(255, 124, 168, 0.28);
+  }
+
+  &__button-icon {
+    @media screen and (max-width: $size-of-mobile) {
+      height: 22px;
+      width: 14px;
+    }
+  }
+}
+
+.langSwitcher {
+  display: flex;
+  gap: 8px;
+  margin-left: 20px;
+}
+
+.langButton {
+  padding: 5px 10px;
+  border: 1px solid rgba(214, 140, 177, 0.45);
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  border-radius: 999px;
+  font-size: 14px;
+  color: #7d4668;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+
+  &:hover {
+    background-color: rgba(255, 230, 241, 0.95);
+    border-color: #d984ae;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(217, 132, 174, 0.16);
+  }
+
+  &.active {
+    background: linear-gradient(135deg, #ff9f7a 0%, #d96db2 100%);
+    color: white;
+    border-color: transparent;
+  }
+}

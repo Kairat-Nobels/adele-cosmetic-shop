@@ -1,0 +1,128 @@
+$size-of-tablet: 800px;
+$size-of-mobile: 550px;
+
+.contacts {
+  margin: 0;
+  padding: 16px 0;
+  position: relative;
+  z-index: 2;
+
+  &__title {
+    font-size: 32px;
+    line-height: 42px;
+    font-family: var(--font-of-title);
+    font-weight: 600;
+    margin: 0;
+    color: #8d4f67;
+
+    @media screen and (max-width: $size-of-mobile) {
+      letter-spacing: 0;
+      text-align: center;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    margin: 24px 0 0;
+
+    @media screen and (max-width: $size-of-mobile) {
+      margin: 20px 0 0;
+      align-items: center;
+    }
+  }
+
+  &__dt {
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 600;
+    margin-bottom: 7px;
+    color: #7d4c64;
+
+    @media screen and (max-width: $size-of-mobile) {
+      font-size: 16px;
+      line-height: 23px;
+      margin-bottom: 5px;
+      text-align: center;
+    }
+  }
+
+  &__dd {
+    font-size: 18px;
+    line-height: 26px;
+    margin: 0 0 23px;
+
+    &:last-of-type {
+      margin-bottom: 30px;
+
+      @media screen and (max-width: $size-of-mobile) {
+        margin-bottom: 24px;
+      }
+    }
+
+    @media screen and (max-width: $size-of-mobile) {
+      font-size: 16px;
+      line-height: 23px;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+  }
+
+  &__mail-link {
+    color: var(--color-of-text);
+    text-decoration: none;
+    transition: opacity 0.25s ease, color 0.25s ease;
+
+    &:hover {
+      opacity: 0.8;
+      color: #c97957;
+    }
+  }
+}
+
+.map-area {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  left: -233px;
+  min-width: 670px;
+  padding: 66px 0;
+
+  @media screen and (max-width: $size-of-tablet) {
+    min-width: 398px;
+    padding: 50px 0;
+    left: -379px;
+  }
+
+  @media screen and (max-width: $size-of-mobile) {
+    left: 0;
+    min-width: 250px;
+    padding: 0;
+    margin: auto;
+    top: -115px;
+  }
+
+  &__map {
+    width: calc(82.1vw - 450px);
+    max-width: 670px;
+    height: 422px;
+    border: none;
+    border-radius: 28px;
+    box-shadow: 0 18px 36px rgba(191, 121, 143, 0.16);
+    overflow: hidden;
+
+    @media screen and (max-width: $size-of-tablet) {
+      width: calc(94.1vw - 350px);
+      max-width: 369px;
+      height: 374px;
+    }
+
+    @media screen and (max-width: $size-of-mobile) {
+      width: 100%;
+      margin: auto;
+      max-width: 290px;
+      height: 281px;
+      border-radius: 20px;
+    }
+  }
+}

@@ -1,0 +1,110 @@
+$size-of-tablet: 900px;
+$size-of-mobile: 550px;
+$size-of-max-width: 1366px;
+
+.footer {
+  background: linear-gradient(180deg,
+      rgba(255, 240, 246, 0.92) 0%,
+      rgba(255, 231, 240, 0.96) 100%);
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1366px;
+  flex-direction: column;
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 -8px 24px rgba(191, 121, 143, 0.08);
+
+  &__main-area {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid rgba(191, 121, 143, 0.15);
+    padding: 61px 98px 56px;
+    box-sizing: border-box;
+    gap: 30px;
+    align-items: center;
+
+    @media screen and (max-width: $size-of-tablet) {
+      padding: 61px 45px 56px;
+    }
+
+    @media screen and (max-width: $size-of-mobile) {
+      padding: 50px 16px 46px calc(max((100vw - 400px), 0px) + 16px);
+      flex-direction: column;
+      gap: 26px;
+      align-items: flex-start;
+    }
+  }
+
+  &__logo-link {
+    display: flex;
+    justify-content: center;
+    outline: none;
+
+    &:hover .footer__logo,
+    &:focus .footer__logo {
+      transform: scale(1.06);
+      opacity: 0.92;
+    }
+
+    @media screen and (max-width: $size-of-mobile) {
+      justify-content: start;
+    }
+  }
+
+  &__logo {
+    transition:
+      transform 0.25s ease,
+      opacity 0.25s ease;
+    width: 131px;
+    height: 21px;
+
+    @media screen and (max-width: $size-of-mobile) {
+      width: 85px;
+      height: 15px;
+    }
+  }
+
+  &__copyright-area {
+    padding: 20px 98px 18px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-sizing: border-box;
+    align-items: center;
+
+    @media screen and (max-width: $size-of-tablet) {
+      padding: 16px 45px 21px;
+    }
+
+    @media screen and (max-width: $size-of-mobile) {
+      flex-direction: column;
+      gap: 14px;
+      padding: 23px 16px 23px calc(max((100vw - 400px), 0px) + 16px);
+      align-items: flex-start;
+    }
+  }
+
+  &__copyright-link {
+    color: #9d7b89;
+    text-decoration: none;
+    transition: color 0.25s ease, opacity 0.25s ease;
+
+    &:hover {
+      color: #c97957;
+      opacity: 0.9;
+    }
+  }
+
+  &__copyright-text {
+    color: #9d7b89;
+    font-size: 12px;
+    line-height: 18px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+}

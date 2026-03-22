@@ -1,0 +1,482 @@
+// Constants
+$primary-color: #122947;
+$secondary-color: #b3bac1;
+$accent-color: #516378;
+$background-color: #f8f8f8;
+$error-color: #ff4d4f;
+$success-color: #52c41a;
+$border-radius: 8px;
+$box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+$transition: all 0.3s ease;
+
+.product-form {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  background-color: white;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  box-sizing: border-box;
+  width: 100%;
+
+  @media screen and (max-width: 768px) {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+
+  @media screen and (max-width: 480px) {
+    padding: 1rem;
+    margin: 0.5rem;
+  }
+
+  h2 {
+    color: $primary-color;
+    margin: 0 0 2rem;
+    text-align: center;
+    font-size: 24px;
+  }
+
+  h3 {
+    color: $primary-color;
+    margin: 1.5rem 0 1rem;
+    font-size: 18px;
+  }
+
+  &__group {
+    margin-bottom: 2rem;
+    position: relative;
+
+    &:last-of-type {
+      margin-bottom: 2.5rem;
+    }
+
+    &:focus-within {
+      .product-form__label {
+        color: $primary-color;
+      }
+    }
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: 0.75rem;
+    color: $accent-color;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    position: relative;
+
+    &::after {
+      content: "*";
+      color: $error-color;
+      margin-left: 4px;
+      font-size: 12px;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba($secondary-color, 0.3);
+    border-radius: $border-radius;
+    font-size: 14px;
+    transition: $transition;
+    box-sizing: border-box;
+
+    &:invalid:not(:placeholder-shown) {
+      border-color: $error-color;
+      background-color: rgba($error-color, 0.02);
+      padding-right: 2.5rem;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' stroke='%23ff4d4f' fill='none' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3ccircle cx='12' cy='12' r='10'%3e%3c/circle%3e%3cline x1='15' y1='9' x2='9' y2='15'%3e%3c/line%3e%3cline x1='9' y1='9' x2='15' y2='15'%3e%3c/line%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 0.75rem center;
+      background-size: 1.25rem;
+    }
+
+    &:valid:not(:placeholder-shown) {
+      border-color: $success-color;
+      background-color: rgba($success-color, 0.02);
+      padding-right: 2.5rem;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' stroke='%2352c41a' fill='none' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M20 6L9 17l-5-5'%3e%3c/path%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 0.75rem center;
+      background-size: 1.25rem;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $accent-color;
+      box-shadow: 0 0 0 3px rgba($accent-color, 0.1);
+    }
+  }
+
+  select.product-form__input {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+    padding-right: 2.5rem;
+
+    &:hover {
+      border-color: $accent-color;
+    }
+
+    option {
+      color: $primary-color;
+      background-color: white;
+    }
+  }
+
+  textarea.product-form__input {
+    min-height: 100px;
+    resize: vertical;
+  }
+
+  &__array-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    align-items: start;
+    position: relative;
+
+    &:hover {
+      .product-form__remove-item {
+        opacity: 1;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+  }
+
+  &__add-item,
+  &__remove-item {
+    padding: 0.75rem 1.25rem;
+    border: none;
+    border-radius: $border-radius;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  &__add-item {
+    background-color: rgba($success-color, 0.1);
+    color: $success-color;
+    width: fit-content;
+    margin-top: 0.5rem;
+
+    &:hover {
+      background-color: rgba($success-color, 0.15);
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  &__remove-item {
+    background-color: rgba($error-color, 0.1);
+    color: $error-color;
+    opacity: 0;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: rgba($error-color, 0.15);
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    @media screen and (max-width: 768px) {
+      opacity: 1;
+    }
+  }
+
+  &__image-upload {
+    margin: 1.5rem 0;
+    position: relative;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__image-preview {
+    max-width: 200px;
+    max-height: 200px;
+    object-fit: contain;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    background-color: white;
+    padding: 0.5rem;
+  }
+
+  &__current-image {
+    width: 100%;
+    padding: 0.75rem;
+    background: rgba($background-color, 0.7);
+    border-radius: $border-radius;
+    font-size: 14px;
+    color: $secondary-color;
+    text-align: center;
+    word-break: break-all;
+    margin-top: 0.5rem;
+  }
+
+  &__file-area {
+    position: relative;
+    width: 100%;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed rgba($accent-color, 0.3);
+    border-radius: $border-radius;
+    background-color: rgba($background-color, 0.5);
+    transition: $transition;
+    overflow: hidden;
+
+    &:hover,
+    &.dragover {
+      border-color: $accent-color;
+      background-color: rgba($background-color, 0.7);
+
+      .product-form__file-placeholder {
+        color: $primary-color;
+      }
+    }
+
+    &.dragover {
+      border-style: solid;
+      background-color: rgba($accent-color, 0.05);
+    }
+  }
+
+  &__file-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  &__file-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    color: $accent-color;
+    gap: 0.5rem;
+    transition: $transition;
+    padding: 1rem;
+  }
+
+  &__file-icon {
+    font-size: 24px;
+    line-height: 1;
+  }
+
+  &__file-text {
+    font-size: 14px;
+    text-align: center;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  &__variants {
+    background-color: rgba($background-color, 0.5);
+    padding: 1.5rem;
+    border-radius: $border-radius;
+    margin: 2rem 0;
+    box-sizing: border-box;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba($secondary-color, 0.1);
+
+    h3 {
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+      color: $primary-color;
+      font-size: 18px;
+      font-weight: 500;
+    }
+  }
+
+  &__variant {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    max-width: 100%;
+    align-items: start;
+
+    @media screen and (max-width: 768px) {
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+
+      button {
+        grid-column: 1 / -1;
+        margin-top: 0.5rem;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+
+      button {
+        margin-top: 0.25rem;
+      }
+    }
+  }
+
+  &__add-variant {
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 1rem;
+    background-color: rgba($accent-color, 0.1);
+    color: $accent-color;
+    border: none;
+    border-radius: $border-radius;
+    font-size: 14px;
+    cursor: pointer;
+    transition: $transition;
+
+    &:hover {
+      background-color: rgba($accent-color, 0.2);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba($secondary-color, 0.2);
+  }
+
+  &__submit,
+  &__cancel {
+    flex: 1;
+    padding: 1rem;
+    border: none;
+    border-radius: $border-radius;
+    font-size: 16px;
+    cursor: pointer;
+    transition: $transition;
+  }
+
+  &__submit {
+    background-color: $primary-color;
+    color: white;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background-color: rgba(white, 0.1);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition:
+        width 0.4s ease,
+        height 0.4s ease;
+    }
+
+    &:hover {
+      background-color: lighten($primary-color, 10%);
+
+      &::before {
+        width: 300px;
+        height: 300px;
+      }
+    }
+
+    &:active::before {
+      background-color: rgba(black, 0.1);
+    }
+  }
+
+  &__cancel {
+    background-color: rgba($secondary-color, 0.1);
+    color: $secondary-color;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background-color: rgba($secondary-color, 0.1);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition:
+        width 0.4s ease,
+        height 0.4s ease;
+    }
+
+    &:hover {
+      background-color: rgba($secondary-color, 0.2);
+
+      &::before {
+        width: 300px;
+        height: 300px;
+      }
+    }
+
+    &:active::before {
+      background-color: rgba($secondary-color, 0.3);
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 1.5rem;
+    margin: 1rem;
+
+    &__variant {
+      grid-template-columns: 1fr 1fr;
+
+      button {
+        grid-column: 1 / -1;
+        width: 100%;
+      }
+    }
+
+    &__actions {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    padding: 1rem;
+
+    &__variant {
+      grid-template-columns: 1fr;
+    }
+  }
+}
