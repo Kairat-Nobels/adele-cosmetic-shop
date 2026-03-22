@@ -1,7 +1,7 @@
 import "./Header.scss";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import logoSvg from "../../images/logo.svg";
+import logoSvg from "../../images/adele.png";
 import cartSvg from "../../images/cart.svg";
 import { useCart } from "../../context/CartContext";
 import burger from "../../images/burger.svg";

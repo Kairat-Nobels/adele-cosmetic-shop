@@ -13,6 +13,7 @@ type FilterProps = {
   choosenValues: TypeOfSettingsFilter;
   setChoosenValues: Dispatch<SetStateAction<TypeOfSettingsFilter>>;
 };
+
 function Filter({
   setIsMenuOpened,
   choosenValues,
@@ -20,18 +21,21 @@ function Filter({
 }: FilterProps) {
   const { translate } = useTranslation();
   const { setSearchData } = useContext(SearchDataContext);
-  const handleSubmit = (evt: FormEvent<EventTarget>) => {
-    evt.preventDefault();
+
+  const handleSubmit = (evt?: FormEvent<EventTarget>) => {
+    evt?.preventDefault();
     setSearchData(choosenValues);
     setIsMenuOpened(false);
   };
+
   const handleReset = () => {
     setChoosenValues(FilterDefaultData);
     setSearchData(FilterDefaultData);
     setIsMenuOpened(false);
   };
+
   return (
-    <form className="filter">
+    <form className="filter" onSubmit={handleSubmit}>
       {FilterSettings.map((item) => (
         <FilterList
           key={item.id}
@@ -40,6 +44,7 @@ function Filter({
           setChoosenValues={setChoosenValues}
         />
       ))}
+
       <div className="filter__button-area">
         <AnimatedButton
           text={translate("common.apply")}

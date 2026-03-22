@@ -19,14 +19,21 @@ function CardsSection({
   isLoading,
   error,
 }: CardsSectionProps) {
-  const { currentLang } = useTranslation();
+  const { currentLang, translate } = useTranslation();
+
   return (
     <section className="card-section">
       <div className="card-section__cards-area">
-        {isLoading && <div className="card-section__loading">Загрузка...</div>}
+        {isLoading && (
+          <div className="card-section__loading">
+            {translate("common.loading")}
+          </div>
+        )}
+
         {!isLoading && error && (
           <div className="card-section__error">{error}</div>
         )}
+
         {!isLoading && !error && items.length === 0 && (
           <>
             {emptyText.map((text, i) => (
@@ -36,6 +43,7 @@ function CardsSection({
             ))}
           </>
         )}
+
         {!isLoading
           && !error
           && items.length > 0
@@ -44,7 +52,11 @@ function CardsSection({
               key={item.id}
               name={item.name}
               image={item.image}
-              shortDescription={currentLang === "ru" ? item.shortDescription : item.shortDescription_kg}
+              shortDescription={
+                currentLang === "ru"
+                  ? item.shortDescription
+                  : item.shortDescription_kg
+              }
               price={item.variants[0].price}
               volume={item.variants[0].volume}
               units={item.units}

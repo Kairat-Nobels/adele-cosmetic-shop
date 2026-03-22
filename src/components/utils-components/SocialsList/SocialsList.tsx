@@ -8,7 +8,7 @@ function ContactsList() {
   return (
     <ul className={"contacts-list"}>
       <li className="contacts-list__item">
-        <a className="contacts-list__link" href="#">
+        <a className="contacts-list__link" target="_blank" href="https://www.facebook.com/" rel="noreferrer">
           <img className="contacts-list__picture" src={facebook} />
         </a>
       </li>
@@ -16,14 +16,15 @@ function ContactsList() {
         <a
           className="contacts-list__link"
           target="_blank"
-          href="https://www.instagram.com/bakir0va_k?igsh=bThzdzlpZ2ZkcXM0&utm_source=qr"
+          href="https://www.instagram.com/jal1lovna/"
           rel="noreferrer"
         >
           <img className="contacts-list__picture" src={instagram} />
         </a>
       </li>
       <li className="contacts-list__item">
-        <a className="contacts-list__link" href="#">
+        <a className="contacts-list__link" href="
+https://twitter.com/" target="_blank" rel="noreferrer">
           <img className="contacts-list__picture" src={twitter} />
         </a>
       </li>

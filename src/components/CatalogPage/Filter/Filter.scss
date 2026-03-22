@@ -1,5 +1,6 @@
 $size-of-tablet: 900px;
 $size-of-mobile: 700px;
+
 .filter {
   display: grid;
   grid-template-columns: 133px 187px 302px;
@@ -7,26 +8,43 @@ $size-of-mobile: 700px;
   grid-template-rows: repeat(2, auto);
   margin: auto;
   width: 768px;
+  padding: 32px 36px;
+  border-radius: 30px;
+  background: rgba(255, 245, 249, 0.88);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 18px 36px rgba(191, 121, 143, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+
   @media screen and (max-width: $size-of-tablet) {
     gap: 38px 60px;
     grid-template-columns: 133px 187px minmax(168px, 1fr);
     width: 100%;
+    padding: 28px 24px;
   }
+
   @media screen and (max-width: $size-of-mobile) {
     gap: 16px 60px;
     grid-template-columns: 250px;
     justify-content: center;
+    padding: 22px 16px;
+    border-radius: 24px;
   }
+
   &__button-area {
     display: flex;
     flex-direction: row;
     gap: 20px;
+    align-items: center;
+
     @media screen and (max-width: $size-of-tablet) {
       grid-column: 1 / span 3;
       justify-content: center;
     }
+
     @media screen and (max-width: $size-of-mobile) {
       grid-column: auto;
+      flex-direction: column;
+      gap: 14px;
     }
   }
 }

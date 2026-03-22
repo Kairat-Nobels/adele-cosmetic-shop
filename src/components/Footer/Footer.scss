@@ -58,7 +58,7 @@ $size-of-max-width: 1366px;
       transform 0.25s ease,
       opacity 0.25s ease;
     width: 131px;
-    height: 21px;
+    height: 60px;
 
     @media screen and (max-width: $size-of-mobile) {
       width: 85px;
@@ -107,4 +107,10 @@ $size-of-max-width: 1366px;
     align-items: center;
     gap: 4px;
   }
+}
+
+.footer-admin{
+  color: #9d7b89;
+  font-size: 16px;
+  text-decoration: none;
 }

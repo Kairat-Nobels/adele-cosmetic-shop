@@ -1,33 +1,59 @@
 $size-of-tablet: 900px;
 $size-of-mobile: 700px;
+
 .filter-section {
   max-width: 1366px;
   margin: auto;
   padding: 142px 93px 52px 98px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  position: relative;
 
   @media screen and (max-width: $size-of-tablet) {
     padding: 142px 41px 40px 45px;
   }
+
   @media screen and (max-width: $size-of-mobile) {
     padding: 105px 8px 43px 15px;
   }
+
   &__title {
     margin: 0;
     font-family: var(--font-of-title);
     font-size: 36px;
-    font-weight: 500;
+    font-weight: 600;
+    color: #8d4f67;
+
     @media screen and (max-width: $size-of-mobile) {
       font-size: 28px;
     }
   }
+
   &__button {
     margin-left: auto;
-    background-color: inherit;
+    background: rgba(255, 245, 249, 0.78);
     cursor: pointer;
-    border: none;
+    border: 1px solid rgba(191, 121, 143, 0.18);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 22px rgba(191, 121, 143, 0.12);
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease,
+      background-color 0.25s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(191, 121, 143, 0.16);
+      background: rgba(255, 239, 245, 0.95);
+    }
   }
+
   &__filter-area {
     z-index: 10;
     position: absolute;
@@ -36,9 +62,10 @@ $size-of-mobile: 700px;
     box-sizing: border-box;
     top: 221px;
     left: 0;
-    background-color: var(--color-of-main-background);
+    background: transparent;
+
     @media screen and (max-width: $size-of-mobile) {
-      padding: 0 35px 120px;
+      padding: 0 15px 120px;
       top: 182px;
     }
   }

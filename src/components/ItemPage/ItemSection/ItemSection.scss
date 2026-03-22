@@ -2,35 +2,6 @@ $size-of-tablet: 900px;
 $size-of-mobile: 700px;
 
 .item-section {
-  &__loading,
-  &__error,
-  &__not-found {
-    text-align: center;
-    padding: 142px 93px;
-    font-size: 18px;
-    width: 100%;
-    box-sizing: border-box;
-
-    @media screen and (max-width: $size-of-tablet) {
-      padding: 142px 45px;
-    }
-    @media screen and (max-width: $size-of-mobile) {
-      padding: 116px 15px;
-    }
-  }
-
-  &__loading {
-    color: #666;
-  }
-
-  &__error {
-    color: #f44336;
-  }
-
-  &__not-found {
-    color: #666;
-  }
-
   display: grid;
   grid-template-columns: 53.6% minmax(200px, 31.5%);
   gap: 70px;
@@ -39,85 +10,154 @@ $size-of-mobile: 700px;
   padding: 142px 93px 0 98px;
   box-sizing: border-box;
   width: 100%;
+
   @media screen and (max-width: $size-of-tablet) {
     grid-template-columns: 100%;
     padding: 142px 45px 0;
     gap: 54px;
   }
+
   @media screen and (max-width: $size-of-mobile) {
     padding: 116px 15px 0;
     gap: 45px;
   }
-  &__info-area {
-    padding: 41px 0;
+
+  &__loading,
+  &__error,
+  &__not-found {
+    text-align: center;
+    padding: 142px 93px;
+    font-size: 18px;
+    width: 100%;
     box-sizing: border-box;
+    border-radius: 28px;
+    background: rgba(255, 244, 248, 0.82);
+    box-shadow: 0 14px 30px rgba(191, 121, 143, 0.1);
+
     @media screen and (max-width: $size-of-tablet) {
-      padding: 0;
+      padding: 142px 45px;
+    }
+
+    @media screen and (max-width: $size-of-mobile) {
+      padding: 116px 15px;
     }
   }
+
+  &__loading,
+  &__not-found {
+    color: #7b6b73;
+  }
+
+  &__error {
+    color: #c25a5a;
+  }
+
+  &__info-area {
+    padding: 34px 28px;
+    box-sizing: border-box;
+    background: rgba(255, 247, 251, 0.72);
+    backdrop-filter: blur(12px);
+    border-radius: 32px;
+    box-shadow: 0 18px 34px rgba(191, 121, 143, 0.1);
+
+    @media screen and (max-width: $size-of-tablet) {
+      padding: 24px 20px;
+    }
+
+    @media screen and (max-width: $size-of-mobile) {
+      padding: 20px 16px;
+      border-radius: 24px;
+    }
+  }
+
   &__image {
     width: 100%;
     max-height: 647px;
     object-fit: cover;
+    border-radius: 34px;
+    box-shadow: 0 20px 40px rgba(191, 121, 143, 0.16);
+
     @media screen and (max-width: $size-of-tablet) {
       max-height: 470px;
+      border-radius: 26px;
     }
+
     @media screen and (max-width: $size-of-mobile) {
       max-height: 260px;
+      border-radius: 20px;
     }
   }
+
   &__title {
     margin: 0;
     font-family: var(--font-of-title);
     font-size: 31px;
+    font-weight: 600;
+    color: #8d4f67;
+
     @media screen and (max-width: $size-of-mobile) {
       font-size: 28px;
-      letter-spacing: -1px;
+      letter-spacing: 0;
     }
   }
+
   &__short-description {
     margin: 7px 0 0;
     color: var(--color-of-gray-text);
     font-size: 16px;
   }
+
   &__description-area {
     display: flex;
     gap: 10px;
     width: 100%;
     flex-direction: column;
-    padding: 36px 0 39px;
-    border-bottom: 1px solid var(--color-of-border-button);
+    padding: 28px 0 32px;
+    border-bottom: 1px solid rgba(224, 155, 122, 0.28);
+
     @media screen and (max-width: $size-of-mobile) {
-      padding: 20px 0 33px;
+      padding: 20px 0 24px;
     }
   }
+
   &__description {
     margin: 0;
     width: 75%;
     line-height: 23px;
+
     @media screen and (max-width: $size-of-tablet) {
       width: 100%;
     }
   }
+
   &__form {
-    margin-top: 43px;
+    margin-top: 32px;
   }
+
   &__variants {
     &-area {
       display: flex;
       flex-direction: row;
       gap: 17px;
+      align-items: center;
+
       @media screen and (max-width: $size-of-mobile) {
-        margin-top: -5px;
+        margin-top: 0;
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
+
     &-name {
       font-size: 18px;
-      font-weight: 500;
+      font-weight: 600;
+      color: #7d4c64;
+
       @media screen and (max-width: $size-of-mobile) {
         font-size: 16px;
       }
     }
+
     &-list {
       list-style: none;
       padding: 0;
@@ -125,24 +165,33 @@ $size-of-mobile: 700px;
       display: flex;
       flex-direction: row;
       gap: 25px;
+      flex-wrap: wrap;
     }
   }
+
   &__price-area {
-    padding-top: 41px;
+    padding-top: 34px;
     display: flex;
     flex-direction: row;
     gap: 50px;
+    align-items: center;
+
     @media screen and (max-width: $size-of-mobile) {
-      padding-top: 47px;
-      gap: 34px;
+      padding-top: 28px;
+      gap: 20px;
+      flex-direction: column;
+      align-items: flex-start;
     }
   }
+
   &__price {
     font-size: 26px;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 145%;
     margin-right: 5px;
+    color: #c97957;
+
     @media screen and (max-width: $size-of-mobile) {
       font-size: 22px;
     }

@@ -68,7 +68,7 @@
   "product": {
     "volume": "Көлөмү",
     "price": "Баасы",
-    "addToCart": "Корзинага кошуу",
+    "addToCart": "Себетке кошуу",
     "description": "Сүрөттөмө",
     "composition": "Курамы",
     "instruction": "Колдонуу нускамасы",
@@ -217,7 +217,7 @@
     "address": "Дарек",
     "phone": "Телефон",
     "addressValue": "Бишкек, Киев көчөсү, 148",
-    "phoneValue": "+996778047383"
+    "phoneValue": "+996509727704"
   },
   "formErrors": {
     "required": "Бул талааны толтуруу керек",

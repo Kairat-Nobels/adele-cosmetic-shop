@@ -6,12 +6,15 @@ $size-of-mobile: 450px;
   box-sizing: border-box;
   max-width: 1366px;
   margin: auto;
+
   @media screen and (max-width: $size-of-tablet) {
     padding: 0 45px;
   }
+
   @media screen and (max-width: $size-of-mobile) {
     padding: 0 15px;
   }
+
   &__cards-area {
     gap: 30px;
     display: grid;
@@ -21,25 +24,49 @@ $size-of-mobile: 450px;
     @media screen and (max-width: $size-of-tablet) {
       grid-template-columns: repeat(2, 1fr);
     }
+
     @media screen and (max-width: $size-of-mobile) {
       grid-template-columns: repeat(1, 1fr);
     }
   }
+
   &__navigate-area {
     display: grid;
     grid-template-columns: 100px 1fr 100px;
   }
+
   &__paging-area {
     grid-column: 2/2;
     justify-self: center;
   }
+
   &__buttons-area {
     display: flex;
     gap: 32px;
   }
-  &__empty-text {
+
+  &__empty-text,
+  &__loading,
+  &__error {
     font-size: 16px;
+    line-height: 24px;
     text-align: center;
     grid-column: span 4;
+    padding: 22px 18px;
+    border-radius: 22px;
+    background: rgba(255, 244, 248, 0.72);
+    box-shadow: 0 12px 26px rgba(191, 121, 143, 0.08);
+
+    @media screen and (max-width: $size-of-tablet) {
+      grid-column: span 2;
+    }
+
+    @media screen and (max-width: $size-of-mobile) {
+      grid-column: span 1;
+    }
+  }
+
+  &__error {
+    color: #b85f5f;
   }
 }

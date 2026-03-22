@@ -15,8 +15,8 @@ interface ProductWithFile extends TypeOfItem {
   imageFile?: File;
 }
 
-const API_URL = "https://f449ec74485f3efc.mokky.dev/items";
-const UPLOAD_URL = "https://f449ec74485f3efc.mokky.dev/uploads";
+const API_URL = "https://e16957e6b2c42c21.mokky.dev/items";
+const UPLOAD_URL = "https://e16957e6b2c42c21.mokky.dev/uploads";
 
 function AdminPanel() {
   const { translate } = useTranslation();

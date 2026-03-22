@@ -1,6 +1,6 @@
 import "./Footer.scss";
 import { Link } from "react-router-dom";
-import logoSvg from "../../images/logo.svg";
+import logoSvg from "../../images/adele.png";
 import copyrightSvg from "../../images/copyright.svg";
 import SocialList from "../utils-components/SocialsList/SocialsList";
 import Nav from "../Nav/Nav";
@@ -20,6 +20,8 @@ function Footer() {
           />
         </Link>
         <Nav type="footer" />
+        <Link className="footer__additional-link" to="/admin/login"><h3 className="footer-admin">Admin</h3>
+        </Link>
         <SocialList />
       </div>
 

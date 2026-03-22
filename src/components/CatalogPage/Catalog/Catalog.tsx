@@ -12,16 +12,20 @@ import { filterItems, getVisibleItems } from "../../../utils/filter";
 import { useTranslation } from "../../../hooks/useTranslation";
 
 function Catalog() {
-  const maxItemsOnPage = 4; // Changed from 12 to 4 products per page
+  const maxItemsOnPage = 4;
   const [searchParams] = useSearchParams();
+  const { translate } = useTranslation();
+
   const [searchData, setSearchData] = useState<TypeOfSettingsFilter>(() => {
     const type = searchParams.get("type");
+
     if (type) {
       return {
         ...FilterDefaultData,
         useFor: type === "face" ? "face" : "body",
       };
     }
+
     return FilterDefaultData;
   });
 
@@ -31,19 +35,20 @@ function Catalog() {
   const [visibleItems, setVisibleItems] = useState<TypeOfItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [allItems, setAllItems] = useState<TypeOfItem[]>([]);
 
   useEffect(() => {
     const type = searchParams.get("type");
+
     if (type) {
       setSearchData((prev) => ({
         ...prev,
         useFor: type === "face" ? "face" : "body",
       }));
     }
-  }, [searchParams]);
 
-  const [allItems, setAllItems] = useState<TypeOfItem[]>([]);
-  const { translate } = useTranslation();
+    setCurrentPage(1);
+  }, [searchParams]);
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -53,34 +58,39 @@ function Catalog() {
         setAllItems(items);
         setError(null);
       } catch (err) {
-        setError("Failed to load products");
+        setError(translate("catalog.loadError"));
       } finally {
         setIsLoading(false);
       }
     };
 
     fetchItems();
-  }, []);
+  }, [translate]);
 
   useEffect(() => {
     const filteredItems = filterItems(searchData, allItems);
     setCurrentItems(filteredItems);
+    setCurrentPage(1);
   }, [searchData, allItems]);
 
   useEffect(() => {
     setMaxPage(getMaxPage(currentItems, maxItemsOnPage));
   }, [currentItems, maxItemsOnPage]);
+
   const handleClickLeftButton = () => {
     if (currentPage === 1) {
       return;
     }
+
     setCurrentPage(currentPage - 1);
     window.scrollTo(0, 0);
   };
+
   const handleClickRightButton = () => {
     if (currentPage === maxPage) {
       return;
     }
+
     setCurrentPage(currentPage + 1);
     window.scrollTo(0, 0);
   };

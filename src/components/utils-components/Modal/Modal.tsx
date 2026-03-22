@@ -1,6 +1,6 @@
 /* eslint-disable  */
 import { ReactNode, useEffect, useState } from "react";
-import QRImage from "../../../images/QRMaroon.jpg";
+import QRImage from "../../../images/QRMaroon.png";
 import "./Modal.scss";
 import { useTranslation } from "../../../hooks/useTranslation";
 

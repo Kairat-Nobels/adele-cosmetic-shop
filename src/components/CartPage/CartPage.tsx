@@ -148,7 +148,7 @@ ${translate("order.phone")}: ${formData.phone}
 ${translate("order.address")}: ${formData.address}`;
 
       // WhatsApp phone number (replace with your actual number)
-      const phoneNumber = "996778047383"; // Please replace with your actual WhatsApp number
+      const phoneNumber = "996509727704"; // Please replace with your actual WhatsApp number
       const encodedMessage = encodeURIComponent(orderDetails);
       const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 

@@ -35,7 +35,7 @@ function ItemSection() {
           
           // If not in catalog, fetch from API
           const response = await fetch(
-            `https://f449ec74485f3efc.mokky.dev/items/`
+            `https://e16957e6b2c42c21.mokky.dev/items/`
           );
           if (!response.ok) {
             throw new Error("Failed to fetch product");

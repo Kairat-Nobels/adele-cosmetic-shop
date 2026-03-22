@@ -1,6 +1,6 @@
 import { TypeOfItem } from "../types/item";
 
-const API_URL = "https://f449ec74485f3efc.mokky.dev/items";
+const API_URL = "https://e16957e6b2c42c21.mokky.dev/items";
 
 export const getItems = async (): Promise<TypeOfItem[]> => {
   try {
