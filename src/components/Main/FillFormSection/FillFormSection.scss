@@ -5,7 +5,7 @@ $size-of-mobile: 550px;
 .fill-form-colored {
   display: flex;
   flex-direction: column;
-  align-items: self-start;
+  align-items: flex-start;
   position: relative;
   z-index: 2;
   padding: 34px 28px;
