@@ -50,7 +50,7 @@ $size-of-mobile: 450px;
   &__buttons-area {
     display: flex;
     gap: 32px;
-    justify-content: end;
+    justify-content: flex-end;
     @media screen and (max-width: $size-of-mobile) {
       gap: 27px;
     }

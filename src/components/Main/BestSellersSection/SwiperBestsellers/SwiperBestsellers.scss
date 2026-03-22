@@ -15,7 +15,7 @@ $size-of-mobile: 450px;
   display: flex;
   flex-direction: row;
   gap: 33px;
-  justify-content: end;
+  justify-content: flex-end;
   padding: 19px 98px 0 0;
   @media screen and (max-width: $size-of-tablet) {
     padding: 23px 42px 0;
