@@ -2,13 +2,11 @@ import { useState, useCallback } from "react";
 import ruTranslations from "../locales/ru/translation.json";
 import kgTranslations from "../locales/kg/translation.json";
 
-type Language = "ru" | "kg";
-
 // eslint-disable-next-line import/prefer-default-export
 export const useTranslation = () => {
-  const [currentLang, setCurrentLang] = useState<Language>(() => {
+  const [currentLang, setCurrentLang] = useState(() => {
     const savedLang = localStorage.getItem("language");
-    return (savedLang as Language) || "ru";
+    return (savedLang) || "ru";
   });
 
   const translations = {
@@ -17,9 +15,9 @@ export const useTranslation = () => {
   };
 
   const translate = useCallback(
-    (key: string) => {
+    (key) => {
       const keys = key.split(".");
-      let translation: any = translations[currentLang];
+      let translation = translations[currentLang];
 
       // eslint-disable-next-line no-restricted-syntax
       for (const k of keys) {
@@ -35,7 +33,7 @@ export const useTranslation = () => {
     [currentLang]
   );
 
-  const changeLang = useCallback((lang: Language) => {
+  const changeLang = useCallback((lang) => {
     setCurrentLang(lang);
     localStorage.setItem("language", lang);
     window.location.reload();
